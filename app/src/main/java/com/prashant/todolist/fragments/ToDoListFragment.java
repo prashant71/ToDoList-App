@@ -7,27 +7,22 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.prashant.todolist.R;
 import com.prashant.todolist.adaptor.RecyclerViewAdaptor;
+import com.prashant.todolist.database.ToDoListTable;
+import com.prashant.todolist.interfaces.IClickListener;
 import com.prashant.todolist.modelclass.ToDOModel;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class ToDoListFragment extends Fragment {
+public class ToDoListFragment extends Fragment{
 
     public static List<ToDOModel> todolist=new ArrayList<>();
-    static{
-        todolist.add(new ToDOModel("Todo1","home work"));
-        todolist.add(new ToDOModel("Todo2","Your answer implies that encoding passwords in base64 is a good practice. In fact it is NOT as anyone can simply decode it."));
-        todolist.add(new ToDOModel("Todo3","workout"));
-        todolist.add(new ToDOModel("Todo4","shopping"));
-        todolist.add(new ToDOModel("Todo5","freelance"));
-        todolist.add(new ToDOModel("Todo6","Default values for encoder/decoder flags."));
-        todolist.add(new ToDOModel("Todo7","Encoder flag bit to indicate lines should be terminated with a CRLF pair instead of just an LF."));
-    }
     RecyclerView recyclerView;
     RecyclerViewAdaptor recycleviewAdaptor;
     public ToDoListFragment() {
@@ -53,15 +48,21 @@ public class ToDoListFragment extends Fragment {
         View view = inflater.inflate(R.layout.recyclerview, container, false);
 
         recyclerView = (RecyclerView) view.findViewById(R.id.my_recycler_view);
+        TextView textview = (TextView) view.findViewById(R.id.textView);
+
         recyclerView.setHasFixedSize(true);
         LinearLayoutManager llm = new LinearLayoutManager(getActivity());
         llm.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(llm);
 
-        recycleviewAdaptor = new RecyclerViewAdaptor(getActivity(),todolist);
-        recyclerView.setAdapter(recycleviewAdaptor);
 
-
+        ToDoListTable toDoListTable=new ToDoListTable(getActivity());
+        todolist=toDoListTable.getTodoList();
+        if(todolist.size()!=0) {
+            textview.setVisibility(View.GONE);
+            recycleviewAdaptor = new RecyclerViewAdaptor(getActivity(),todolist);
+            recyclerView.setAdapter(recycleviewAdaptor);
+        }else textview.setVisibility(View.VISIBLE);
         return  view;
     }
 }

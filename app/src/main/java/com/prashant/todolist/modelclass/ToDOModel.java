@@ -7,23 +7,23 @@ package com.prashant.todolist.modelclass;
 public class ToDOModel {
     String todoTitle;
     String todoDescription;
-    String todoDate;
     int todoPriority;
-    boolean todoStatus;
+    int todoIndex;
 
     public ToDOModel() {
     }
 
-    public ToDOModel(String todoTitle, String todoDescription) {
+    public ToDOModel(String todoTitle, String todoDescription, int todoPriority) {
         this.todoTitle = todoTitle;
         this.todoDescription = todoDescription;
-    }
-    public ToDOModel(String todoTitle, String todoDescription, String todoDate, int todoPriority, boolean todoStatus) {
-        this.todoTitle = todoTitle;
-        this.todoDescription = todoDescription;
-        this.todoDate = todoDate;
         this.todoPriority = todoPriority;
-        this.todoStatus = todoStatus;
+    }
+
+    public ToDOModel(String todoTitle, String todoDescription, int todoPriority, int todoIndex) {
+        this.todoTitle = todoTitle;
+        this.todoDescription = todoDescription;
+        this.todoPriority = todoPriority;
+        this.todoIndex = todoIndex;
     }
 
     public String getTodoTitle() {
@@ -42,14 +42,6 @@ public class ToDOModel {
         this.todoDescription = todoDescription;
     }
 
-    public String getTodoDate() {
-        return todoDate;
-    }
-
-    public void setTodoDate(String todoDate) {
-        this.todoDate = todoDate;
-    }
-
     public int getTodoPriority() {
         return todoPriority;
     }
@@ -58,11 +50,11 @@ public class ToDOModel {
         this.todoPriority = todoPriority;
     }
 
-    public boolean isTodoStatus() {
-        return todoStatus;
+    public int getTodoIndex() {
+        return todoIndex;
     }
 
-    public void setTodoStatus(boolean todoStatus) {
-        this.todoStatus = todoStatus;
+    public void setTodoIndex(int todoIndex) {
+        this.todoIndex = todoIndex;
     }
 }

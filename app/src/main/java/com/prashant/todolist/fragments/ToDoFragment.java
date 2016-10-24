@@ -7,6 +7,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.prashant.todolist.R;
+import com.prashant.todolist.database.ToDoListTable;
+import com.prashant.todolist.database.TodoListSQLiteHelper;
+import com.prashant.todolist.modelclass.ToDOModel;
 
 public class ToDoFragment extends Fragment {
     public ToDoFragment() {
@@ -21,6 +24,11 @@ public class ToDoFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        TodoListSQLiteHelper dbhelper=new TodoListSQLiteHelper(getActivity());
+        ToDoListTable toDoListTable=new ToDoListTable(getActivity());
+        toDoListTable.insert(new ToDOModel("Home","The constructor will receive an object that implements this interfaces, along with the items to be rendered:",1));
+
     }
 
     @Override
