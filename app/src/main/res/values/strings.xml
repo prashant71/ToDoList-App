@@ -4,9 +4,9 @@
 
     <string name="todo_title">Title</string>
     <string name="todo_descp">Description</string>
-    <string name="todo_save">Save</string>
+    <string name="todo_save">Add ToDo</string>
     <string name="success_msg"> "ToDo Saved..!"</string>
-    <string name="delete_msg"> "ToDo Deleted..!"</string>
+    <string name="delete_msg"> "ToDo Done..!"</string>
     <string name="notfound"> "ToDo not Found..!"</string>
     <string name="priority"> "Pick Priority :"</string>
 

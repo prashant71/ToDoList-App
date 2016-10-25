@@ -1,9 +1,8 @@
 package com.prashant.todolist.modelclass;
 
 /**
- * Created by PRASHANT KOLI on 10/17/2016.
+ * Created by PRASHANT KOLI on 10/24/2016.
  */
-
 public class ToDOModel {
     String todoTitle;
     String todoDescription;

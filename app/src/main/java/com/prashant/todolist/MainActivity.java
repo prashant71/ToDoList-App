@@ -18,7 +18,7 @@ import com.prashant.todolist.fragments.ToDoFragment;
 import com.prashant.todolist.fragments.ToDoListFragment;
 
 /**
- * Created by PRASHANT KOLI on 10/17/2016.
+ * Created by PRASHANT KOLI on 10/24/2016.
  */
 public class MainActivity extends AppCompatActivity {
 

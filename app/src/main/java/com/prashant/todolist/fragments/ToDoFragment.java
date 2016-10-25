@@ -3,7 +3,6 @@ package com.prashant.todolist.fragments;
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +16,9 @@ import com.prashant.todolist.R;
 import com.prashant.todolist.database.ToDoListTable;
 import com.prashant.todolist.modelclass.ToDOModel;
 
+/**
+ * Created by PRASHANT KOLI on 10/25/2016.
+ */
 public class ToDoFragment extends Fragment implements View.OnClickListener {
     TextInputLayout inputtext_title,inputtext_descp;
     EditText title,descp;

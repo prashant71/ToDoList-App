@@ -17,8 +17,9 @@ import com.prashant.todolist.modelclass.ToDOModel;
 import java.util.List;
 
 /**
- * Created by PRASHANT KOLI on 10/17/2016.
+ * Created by PRASHANT KOLI on 10/24/2016.
  */
+
 public class RecyclerViewAdaptor extends RecyclerView.Adapter<RecyclerViewAdaptor.ItemCardHolder >{
 
     Context context;

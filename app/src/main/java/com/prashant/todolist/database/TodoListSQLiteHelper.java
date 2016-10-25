@@ -5,9 +5,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 /**
- * Created by ADMIN on 10/24/2016.
+ * Created by PRASHANT KOLI on 10/24/2016.
  */
-
 public class TodoListSQLiteHelper extends SQLiteOpenHelper {
 
     public static final String DATABASE_NAME = "ToDoListApp.sqlite";

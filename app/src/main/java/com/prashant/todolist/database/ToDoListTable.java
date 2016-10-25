@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by PRASHANT KOLI on 4/13/2016.
+ * Created by PRASHANT KOLI on 10/25/2016.
  */
 public class ToDoListTable implements Serializable {
     TodoListSQLiteHelper dbHelper;
