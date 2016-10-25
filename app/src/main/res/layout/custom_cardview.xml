@@ -18,8 +18,33 @@
             android:layout_margin="3dp"
             android:orientation="horizontal">
 
+            <ImageButton
+                android:layout_marginRight="2dp"
+                android:layout_alignParentRight="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:src="@drawable/selector_checkdone"
+                android:id="@+id/imageButton"
+                android:background="@android:color/transparent"
+                android:scaleType="centerInside" />
+            <TextView
+                android:id="@+id/priority"
+                android:layout_toLeftOf="@id/imageButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_count"
+                android:text="20"
+                android:layout_margin="5dp"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:textColor="@android:color/white"
+                android:textSize="10sp"
+                android:visibility="visible"
+                android:textStyle="bold" />
+
             <LinearLayout
-                android:layout_toLeftOf="@+id/priority"
+                android:layout_toLeftOf="@id/priority"
                 android:id="@+id/todo_cvlayout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -45,32 +70,6 @@
                     android:textColor="@color/secondary_text"
                     android:text="Descp of the TODO"/>
             </LinearLayout>
-
-            <TextView
-                android:id="@id/priority"
-                android:layout_toLeftOf="@+id/imageButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/background_count"
-                android:text="20"
-                android:layout_margin="5dp"
-                android:layout_centerInParent="true"
-                android:gravity="center"
-                android:textColor="@android:color/white"
-                android:textSize="10sp"
-                android:visibility="visible"
-                android:textStyle="bold" />
-
-            <ImageButton
-                android:layout_marginRight="2dp"
-                android:layout_alignParentRight="true"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:src="@drawable/selector_checkdone"
-                android:id="@id/imageButton"
-                android:background="@android:color/transparent"
-                android:scaleType="centerInside" />
         </RelativeLayout>
 
 

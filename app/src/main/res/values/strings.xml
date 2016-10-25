@@ -2,6 +2,14 @@
     <string name="app_name">ToDo App</string>
     <string name="toolbar_menu_add">Add ToDo</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="todo_title">Title</string>
+    <string name="todo_descp">Description</string>
+    <string name="todo_save">Save</string>
+    <string name="success_msg"> "ToDo Saved..!"</string>
+    <string name="delete_msg"> "ToDo Deleted..!"</string>
+    <string name="notfound"> "ToDo not Found..!"</string>
+    <string name="priority"> "Pick Priority :"</string>
+
+    <string name="todo_error_title">Please Enter Title of the ToDo...!</string>
+    <string name="todo_error_descp">Please Enter Description of the ToDo...!</string>
 </resources>

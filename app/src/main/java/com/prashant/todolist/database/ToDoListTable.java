@@ -47,14 +47,6 @@ public class ToDoListTable implements Serializable {
         return 0;
     }
 
-
-    public boolean delete(ToDOModel todoModel) {
-            String whereclause = "todoIndex" + "=" + todoModel.getTodoIndex();
-            open();
-            boolean b =db.delete(TABLE, whereclause, null) > 0;
-            close();
-            return b;
-    }
     public boolean delete(int index) {
         String whereclause = "todoIndex" + "=" + index;
         open();
@@ -66,9 +58,9 @@ public class ToDoListTable implements Serializable {
 
     public List<ToDOModel> getTodoList() {
         List<ToDOModel> todolist = new ArrayList<>();
-//        String query = "select * from " + TABLE + " where todoPriority=" + exercise_Cat_ID + ";";
+        String query = "select * from " + TABLE + " ORDER BY todoPriority ASC;";
 
-        String query = "select * from " + TABLE + ";";
+//        String query = "select * from " + TABLE + ";";
         open();
         Cursor cursor = db.rawQuery(query, null);
         if (cursor.moveToFirst()) {

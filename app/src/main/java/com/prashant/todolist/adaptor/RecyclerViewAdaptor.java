@@ -9,8 +9,9 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.prashant.todolist.MainActivity;
 import com.prashant.todolist.R;
-import com.prashant.todolist.interfaces.IClickListener;
+import com.prashant.todolist.database.ToDoListTable;
 import com.prashant.todolist.modelclass.ToDOModel;
 
 import java.util.List;
@@ -22,10 +23,12 @@ public class RecyclerViewAdaptor extends RecyclerView.Adapter<RecyclerViewAdapto
 
     Context context;
     List<ToDOModel> todoList;
+    ToDoListTable toDoListTable;
 
     public RecyclerViewAdaptor(Context context, List<ToDOModel> todoList) {
         this.todoList = todoList;
         this.context = context;
+        toDoListTable=new ToDoListTable(context);
     }
     @Override
     public ItemCardHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
@@ -34,12 +37,21 @@ public class RecyclerViewAdaptor extends RecyclerView.Adapter<RecyclerViewAdapto
     }
 
     @Override
-    public void onBindViewHolder(ItemCardHolder holder, int position) {
+    public void onBindViewHolder(ItemCardHolder holder,final int position) {
         final ToDOModel todomodel=todoList.get(position);
 
         holder.todoTitle.setText(todomodel.getTodoTitle());
         holder.tododescp.setText(todomodel.getTodoDescription());
-//        holder.priority.setText(todomodel.getTodoIndex());//need to check or change
+        holder.priority.setText(String.valueOf(todomodel.getTodoPriority()));
+        holder.done.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                removeItem(position);
+                toDoListTable.delete(todomodel.getTodoIndex());
+                ((MainActivity)context).alertSnackbar(context.getString(R.string.delete_msg),R.color.colorPrimaryDark);
+
+            }
+        });
     }
 
     @Override
@@ -52,7 +64,7 @@ public class RecyclerViewAdaptor extends RecyclerView.Adapter<RecyclerViewAdapto
         notifyItemRemoved(position);
         notifyItemRangeChanged(position,todoList.size());
     }
-    public class ItemCardHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+    public class ItemCardHolder extends RecyclerView.ViewHolder{
         final CardView cv;
         TextView todoTitle;
         TextView tododescp;
@@ -65,13 +77,6 @@ public class RecyclerViewAdaptor extends RecyclerView.Adapter<RecyclerViewAdapto
             tododescp=(TextView) itemView.findViewById(R.id.todo_discp);
             priority=(TextView) itemView.findViewById(R.id.priority);
             done=(ImageButton) itemView.findViewById(R.id.imageButton);
-            done.setOnClickListener(this);
-        }
-
-        @Override
-        public void onClick(View v) {
-            removeItem(getAdapterPosition());
-            //delete from DB also call here
         }
     }
 }
