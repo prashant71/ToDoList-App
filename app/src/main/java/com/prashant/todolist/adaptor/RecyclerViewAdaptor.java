@@ -26,6 +26,7 @@ public class RecyclerViewAdaptor extends RecyclerView.Adapter<RecyclerViewAdapto
     List<ToDOModel> todoList;
     ToDoListTable toDoListTable;
 
+
     public RecyclerViewAdaptor(Context context, List<ToDOModel> todoList) {
         this.todoList = todoList;
         this.context = context;
